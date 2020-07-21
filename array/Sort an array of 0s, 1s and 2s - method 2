@@ -1,0 +1,22 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+	public static void main (String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int Test_Cases = sc.nextInt();
+		for(int i=0; i<Test_Cases; i++) {
+		    int size_of_array = sc.nextInt();
+		    int array[] = new int[size_of_array];
+		    for(int j=0; j<size_of_array; j++) {
+		        array[j] = sc.nextInt();
+		    }
+		    Arrays.sort(array);
+		    for(int k=0; k<size_of_array; k++) {
+		        System.out.print(array[k] + " ");
+		    }
+		    System.out.println();
+		}
+	}
+}
