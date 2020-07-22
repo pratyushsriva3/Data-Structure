@@ -1,0 +1,56 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+	public static void main (String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int Tc = sc.nextInt();
+		for(int i=0; i<Tc; i++) {
+		    int size = sc.nextInt();
+		    int[] array = new int[size];
+		    for(int j=0; j<size; j++) {
+		        array[j] = sc.nextInt();
+		    }
+		    int result = equilibrium(array,size);
+		    System.out.println(result);
+		}
+	}
+	public static int equilibrium (int[] array, int n) {
+	    if(n == 0) {
+	        return  -1;
+	    }
+	    else if(n == 1) {
+	        return 1;
+	    }
+	    else {
+	        int i=1;
+	        boolean flag = false;
+	        while ( i<n-1 ) {
+	            int hl=0;
+	            int fl=i-1;
+	            int hr=i+1;
+	            int fr=n-1;
+	            int sum_left = sum_ar(array,hl,fl);
+	            int sum_right = sum_ar(array,hr,fr);
+	            if(sum_left == sum_right) {
+	                flag = true;
+	                return i+1;
+	            }
+	            i++;
+	        }
+	        if(!flag) {
+	            return -1;
+	        }
+	    }
+	    return -1;
+	}
+	
+	public static int sum_ar(int[] ar, int start, int end ) {
+	    int sum =0;
+	    for(int c=start; c<=end; c++) {
+	        sum += ar[c];
+	    }
+	    return sum;
+	}
+}
