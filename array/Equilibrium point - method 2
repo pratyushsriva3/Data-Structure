@@ -1,0 +1,45 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+	public static void main (String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int Tc = sc.nextInt();
+		for(int i=0; i<Tc; i++) {
+		    int size = sc.nextInt();
+		    if(size==1){
+		        int next = sc.nextInt();
+		        System.out.println("1");
+		    }
+		    else if(size<1){
+		        System.out.println("-1");
+		    }
+		    else {
+		        int[] array = new int[size];
+		        int totalsum = 0;
+		        for(int j=0; j<size; j++) {
+		            array[j] = sc.nextInt();
+		            totalsum += array[j];
+		            
+		        }
+		        
+		        System.out.println(equilibrium(array,size,totalsum));
+		    }
+		}
+	}
+	public static int equilibrium (int[] array, int n, int sum) {
+	    int l_sum =0;
+	    for(int k=0; k<n; k++) {
+	        
+	        sum -= array[k];
+	            
+	        if(sum == l_sum) {
+	           return k+1;
+	        }
+	            
+	        l_sum += array[k];
+	    }
+	    return -1;
+	}
+}
