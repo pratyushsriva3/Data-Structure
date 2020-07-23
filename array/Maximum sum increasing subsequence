@@ -1,0 +1,37 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+	public static void main (String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st;
+		int Tc = Integer.parseInt(br.readLine());
+		int i;
+		for(i=0; i<Tc; i++) {
+		    int j,k,max=0;
+		    int size = Integer.parseInt(br.readLine());
+		    st = new StringTokenizer(br.readLine());
+		    int[] array = new int[size];
+		    int[] temp = new int[size];
+		    for(j=0; j<size; j++) {
+		        array[j] = Integer.parseInt(st.nextToken());
+		        temp[j] = array[j];
+		    }
+		    for(j=1; j<size; j++) {
+		        for(k=0; k<j; k++) {
+		            if( array[k]<array[j] && ( temp[j] < temp[k] + array[j] )) {
+		                temp[j] = temp[k] + array[j];
+		            }
+		        }
+		    }
+		    max = temp[0];
+		    for(j=0; j<size; j++) {
+		        if(max < temp[j]) {
+		            max = temp[j];
+		        }
+		    }
+		    System.out.println(max);
+		}
+	}
+}
