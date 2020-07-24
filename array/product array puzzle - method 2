@@ -1,0 +1,30 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+	public static void main (String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int t = Integer.parseInt(br.readLine());
+        while(t-->0) {
+            int n=Integer.parseInt(br.readLine());
+            String []s = br.readLine().trim().split(" ");
+            int a[] = new int[n];
+            for(int i=0;i<n;i++) {
+                a[i]=Integer.parseInt(s[i]);
+            }
+            productarray(a,n);
+        }
+	}
+	public static void productarray(int[] a,int n) {
+	    int pro=1;
+		for(int i=0;i<n;i++) {
+		    pro *=a[i];
+		}
+		StringBuffer sb=new StringBuffer();
+		for(int j=0;j<n;j++) {
+		    sb.append(pro/a[j]+" ");
+		}
+		System.out.println(sb);
+	}
+}
