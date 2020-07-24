@@ -1,0 +1,37 @@
+import java.util.*;
+import java.lang.*;
+
+class Main
+{
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in)
+        int t = sc.nextInt();
+        
+        while(t--> 0) {
+            long n = sc.nextLong();
+            GFG gfg = new GFG();
+            long res = gfg.count2s(n);
+            System.out.print(res);
+        }
+    }
+}
+
+class GfG
+{
+    public static long count2s(long n)
+    {
+        long c=0;
+        
+        for(long j=0;j<=n;j++)
+        {
+            String str= Long.toString(j);
+            for(int i=0;i<str.length();i++) {if(str.charAt(i)=='2') c++;}
+        }
+        return c;
+    }
+    
+    /*public static long count2sinRangeAtDigit(long n, long d)
+    {
+        //Your code here too
+    }*/
+}
